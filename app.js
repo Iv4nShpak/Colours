@@ -1,5 +1,9 @@
 const cols = document.querySelectorAll('.col')
 
+document.addEventListener('click', (event) => {
+    
+})
+
 // function randomColor(){
 
 //     const hexCodes = '0123456789ABCDEF'
@@ -10,15 +14,23 @@ const cols = document.querySelectorAll('.col')
 //     return '#' + color
 // }
 
+document.addEventListener('keydown', (event) => {
+    if (event.code.toLowerCase() == 'space'){
+        setRandomColors()
+    }
+})
+
 function setRandomColors(){
     cols.forEach((col) => {
         const text = col.querySelector('h2')
+        const button = col.querySelector('button')
         const color = chroma.random()
 
         text.textContent = color
         col.style.background = color
 
         setTextColor(text, color)
+        setTextColor(button, color)
     })
 }
 
